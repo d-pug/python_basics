@@ -1,5 +1,7 @@
 # Python Basics
 
+I have primarily adapted the content presented here from a [Python Focus Group](https://github.com/vhaghani26/python_focus_group) I conducted to teach students during grad school.
+
 ## Table of Contents
 
 * [The `print()` Function](#the-print-function)
@@ -9,9 +11,8 @@
 	* [Strings](#strings)
 	* [Numeric Types](#numeric-types)
 	* [Sequence Types](#sequence-types)
-	* [Mapping Types](#mapping-types)
+	* [Mapping Types (Dictionaries)](#mapping-types-dictionaries)
 	* [Booleans](#booleans)
-	* [Dataframes](#dataframes)
 * [Comparison and Logic Operators](#comparison-and-logic-operators)
 * [Loops](#loops)
 	* [For-Loops](#for-loops)
@@ -205,18 +206,399 @@ float7 = 9/16
 
 ### Sequence Types
 
-### Mapping Types
+Sequence types represent collections of data where each item is accessible by its index. Sequence types are fundamental for storing and manipulating data presented in a specific order. There are multiple types of sequence types, including tupples, lists, ranges, bytearrays, etc. Here, I will be focusing on lists and ranges because these are more commonly used sequence types.
+
+#### Lists
+
+Lists are ordered sequences represented with square brackets. They can contain strings, floats, integers, other lists, and even other data types. You can even make a list of data frames. Let's look at some examples:
+
+```
+# Make a list
+list1 = ["Viki", "Shawn", "Sophia", "David"]
+print(list1)
+
+# Include multiple data types in a list
+list2 = ["Lamp", 3, 7.2, True, (1, 2, 3)]
+print(list2)
+```
+
+As mentioned earlier, the elements in a list use a specific order (index). To access indexed components, you use the number corresponding to the order the data is presented in. It is important to note that Python is 0-based, so to access the first element, we can use the index 0.
+
+```
+# Index a list
+print(list2[0])
+print(list2[0][0])
+print(list2[-1])
+print(list2[4][1])
+```
+
+Lists are dynamic, meaning you can add, remove, or change items if needed:
+
+```
+# Appending to a list
+my_fav_artists = ["Michael Jackson", "Metallica", "Guns N Roses"]
+my_fav_artists.append("Billy Idol")
+print(my_fav_artists)
+
+# Delete element
+del(my_fav_artists[0])
+print(my_fav_artists)
+
+# Change list element
+my_fav_artists[0] = "Billy Joel"
+print(my_fav_artists)
+```
+
+#### Ranges
+
+The `range()` function returns a sequence of numbers.
+
+```
+# Turn our range into a list
+numbers = list(range(1,6))
+print(numbers)
+```
+
+
+Let's take a look at our output more closely. Notice that our list starts with "1" and ends with "5." This is the same behavior we notice with indexing; our last digit has an off-by-one behavior. This means we have to add one to the last digit to get the range we want. For example, if we want the numbers 1-20 in a list, we have to use the following:
+
+```
+# Turn our range into a list containing numbers 1-20
+range1_20 = list(range(1,21))
+print(range1_20)
+```
+
+We can also tell Python to skip numbers in a given range. The notation is `(first number in range, last number in range + 1, every Xth value you want)`. Now let's put this in action. Let's try to view all even numbers in the range 1 through 10.
+
+```
+# Even numbers from 1-10
+even_numbers=list(range(2,11,2))
+print(even_numbers)
+```
+
+If we look more closely at the information in the range function, we see that we start at 2. Why not 1? This is because adding a value to skip other values accounts for the first value already. This command is basically us saying "Starting at 2 and ending at 11, skip every 2nd number." In this case, beginning our range with 1 means that our second element, 2, would be skipped instead.
+
+### Mapping Types (Dictionaries)
+
+Mapping types are data types used to associate keys and values. Dictionaries are the only built-in mapping type, but others can be found in the `collections` module, such as `deafultdict`, `OrderedDict`, `Counter`, etc.
+
+Dictionaries are a type of collection in Python. It has keys and values, where a key is analogous to the index. To create a dictionary, we use curly brackets: `{}`. The keys have to be immutable and unique (since they act as an index), but the values can be immutable, mutable, and duplicates. Each key and value pair is separated by a comma. Let's make a dictionary!
+
+```
+# Make our first dictionary
+dict1 = {'a':0, 'b':1, 'c':2}
+print(dict1)
+```
+
+You can use several data types as the values in a dictionary.
+
+```
+# Mix data types in a dictionary
+dict2 = {"my_string":"Coffee", "my_int": 8, "my_float":9.2, "my_list":[1, 2, 3, 4, 5]}
+print(dict2)
+```
+
+We can search for values in a dictionary like we would use indexing.
+
+```
+# Find values in a dictionary
+dict3 = {
+  "brand": "Honda",
+  "model": "Civic",
+  "year": 2020
+}
+print(dict3["brand"])
+```
+
+We can add new entries using the assignment operator `=`.
+
+```
+# Add new value dictionary entry
+dict3["owner"] = "Sadie"
+print(dict3)
+```
+
+We can also delete entries.
+
+```
+# Delete dictionary entry
+del(dict3["owner"])
+print(dict3)
+```
 
 ### Booleans
 
-### Dataframes
+While Boolean values are usually not directly coded for, they are extremely helpful since any logical operator or statement ends up being a Boolean output. Booleans are most heavily associated with conditionals. A Boolean value can take two on two values: True or False. 
+
+```
+bool1 = type(True)
+print(bool1)
+```
+
+We can also use numerics to represent a Boolean value, where 1 represents True and 0 represents False:
+
+```
+# Demonstrate Boolean as integer
+bool2 = int(True)
+print(bool2)
+bool3 = int(False)
+print(bool3)
+```
 
 ## Comparison and Logic Operators
+
+### Comparison Operators
+
+Comparison operators compare some value or operand, then, based on some condition, produce a Boolean.
+
+We can use the equality operator, `==` to determine if values are equal.
+
+```
+# Variables
+a = 5
+b = 10
+c = 5
+
+# Determine if values are equal
+IsEqual = a == b
+print(IsEqual)
+```
+
+Let's compare the magnitude of the values.
+
+```
+# Check if a value is greater than another
+IsGreater = a > b
+print(IsGreater)
+
+# Check if a value is less than another
+IsLess = a < b
+print(IsLess)
+
+# Check if a value is less than or equal to another
+IsLessOrEqual = a <= c
+print(IsLessOrEqual)
+
+# Check if a value is greater than or equal to another
+IsGreaterOrEqual = b >= c
+print(IsGreaterOrEqual)
+```
+
+Testing for equality is easy, but now how do we test for inequality using operators? In Python, we can use the inequality operator: `!=`.
+
+```
+# See if values are not equal
+IsNotEqual1 = a != b
+print(IsNotEqual1)
+
+IsNotEqual2 = a != c
+print(IsNotEqual2)
+```
+
+### Logic Operators
+
+Logic operators take Boolean values and produce different Boolean values. The "not," "or," and "and" operator takes in two values to produce a new Boolean value. You can use "if, and" and "if, or" statements. The "and" statement is only True when both conditions are true. The "or" statement is true if one condition is True. The "not" statement outputs the opposite true value. This is essentially what we see in a [truth table](https://docs.oracle.com/html/E79061_01/Content/Reference/Truth_tables.htm). Let's take a look at these.
+
+```
+# Basic logic operators
+print(not(True))
+print(not(False))
+```
+
+The following example uses a conditional (if statement), which we will dive into in a future session. I will keep it basic here, but wanted to demonstrate the logic used.
+
+```
+# Using logic operators in a basic conditional
+album_year = 1983
+if album_year > 1979 and album_year < 1990:
+	print("This album was made in the 80’s")
+```
 
 ## Loops
 
 ### For-Loops
 
+We can perform an action on every component of various data types (e.g. lists, dictionaries, tuples, sets, strings) using a for-loop function. The concept can be thought of as "for every item, do this action." This is called iteration. It allows you to carry out many actions at once instead of doing it individually for objects, variables, or data. It is one of the most widely and commonly used tools in Python. Regarding syntax, after the initial "for" statement, every indented line following the for/in command is considered inside the loop, and each indented line is executed once for each value in the list. While this may sound a little complicated, it is far easier understood in practice. 
+
+
+```
+# Make a list
+magicians = ["alice", "david", "carolina"]
+
+# Printing the list to see the magicians
+print(magicians)
+
+# Printing each magician individually
+for magician in magicians:
+	print(magician)
+```
+
+Notice how the outputs are different. This is because the for loop carried out the print function for each element in the list rather than printing the whole list. Let's try another for-loop!
+
+```
+# Carry out more complicated actions
+for magician in magicians:
+	print(magician.title() + " , that was a great trick!")
+	print("I can’t wait to see your next trick, " + magician.title() + ".\n")
+```
+
+If we want to do something after a for-loop, write the code without an indentation. You can also include a line break if you prefer to keep the code cleaner.
+
+```
+# Carry out more complicated actions
+for magician in magicians:
+	print(magician.title() + " , that was a great trick!")
+	print("I can’t wait to see your next trick, " + magician.title() + ".\n")
+	
+print("Thank you, everyone. That was a great magic show!"
+```
+
+Here are some more examples of basic for-loops. Including how you can implement the `range()` function.
+
+```
+# More basic for-loops
+A = [1, 2, 3, 4, 5]
+for value in A:
+    print(value)
+	
+dates = [1982, 1980, 1973]
+for date in dates:
+    print(date)
+	
+# A more complicated for-loop where you can access the index and list items
+x = len(dates)
+for i in range(x):
+    print(i, dates[i])  
+	
+# The range() function
+squares = []
+for value in range(1,11):
+	square = value**2
+	squares.append(square)
+print(squares)
+```
+
 ### While-Loops
 
+While-loops are similar to for-loops, but instead of executing a statement a set number of times, a while loop will only run if a condition is met. This is especially helpful if you want to iterate a certain number of times.
+
+```
+# Basic while-loop with 10 iterations
+i = 0
+while i < 10:
+	print(i)
+	i += 1
+
+# A while-loop with two variables
+x = 11
+y = 1
+while y < x:
+	print(y)
+	y += 1
+```
+
+Be careful with while-loops, however, as it is easy to get stuck in one. Below is an example of a never ending while-loop.
+
+```
+# Broken while-loop
+i = 0
+while i < 10:
+	print(i)
+```
+
+Here are some examples:
+
+```
+# More complicated while-loop
+dates = [1982, 1980, 1973, 2000]
+i = 0
+year = 0
+while year != 1973:
+    year = dates[i]
+    i = i + 1
+    print(year)
+print("It took ", i ,"repetitions to get out of loop.")
+
+# Another complicated while-loop
+PlayListRatings = [10, 9.5, 10, 8, 7.5, 5, 10, 10]
+i = 1
+Rating = PlayListRatings[0]
+while Rating >= 6:
+    print(Rating)
+    Rating = PlayListRatings[i]
+    i += 1
+
+# One last while-loop for reference
+squares = ['orange', 'orange', 'purple', 'blue ', 'orange']
+new_squares = []
+i = 0
+while squares[i] == 'orange':
+    new_squares.append(squares[i])
+    i += 1
+print(new_squares)
+```
+
 ## Conditionals
+
+What exactly is a conditional? Well, a conditional is when you want to carry out a certain set of actions only if something (data in this case) meets a certain condition. For example, if the weather is sunny out, then I will wear shorts. Otherwise, I will wear long pants. 
+
+Now what about data? In many situations, our data is dynamic and we want to carry out different operations given a set of conditions. Additionally, you can define conditions based on nearly all data types. Let's dive in and see what we can do with conditionals!
+
+Imagine you are at a club that requires you to be 18 years old to enter. Let's simulate this scenario in code. Try running the following in your script and let's see the output.
+
+```
+age = 19
+
+if age >= 18:
+    print("You may enter!")
+else:
+    print("You are too young to enter.")
+```
+
+Upon running it, we see that since the age is 19, we may enter! What if our age is not 19? Let's change the age to 16 and run it again. You should now see a different response. This is the power of the conditional - different code is executed based on what condition gets met.
+
+```
+age = 16
+
+if age >= 18:
+    print("You may enter!")
+else:
+    print("You are too young to enter.")
+```
+
+Generally speaking, conditionals have the following structure:
+
+```
+if {some condition}:
+    {code to execute}
+else:
+    {alternative code to execute if the condition is not met}
+```
+
+Aside from simply carrying out code, you can also use the variable in the code:
+
+```
+age = 14
+print("Dad: Happy birthday! How old are you turning this year?")
+print(f"Son: Thank you. I’m turning {age} this year")
+if age >= 16:
+	print("Dad: Good, now go get a job")
+else:
+	print(f"Dad: Wow, only {16-age} more years until you can get a job")
+```
+
+There may be times when you have more than two possible paths to execute depending on the data. In this case, you can add an `elif` statement. `elif` stands for "else if," essentially meaning "if it doesn't match the first condition, see if it matches this one." It makes more sense in action, so let's take a look. Below, we will check to see the status of `x` in relation to `y`.
+
+```
+x = 5
+y = 10
+
+if x > y:
+    print("x is greater than y")
+elif x < y:
+    print("x is less than y")
+else:
+    print("x is equal to y")
+```
+
+Change the values of `x` and `y` and see how the outputs change.
