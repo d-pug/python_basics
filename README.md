@@ -159,6 +159,8 @@ str1 = "Hello world"
 str2 = "Spring is coming!"
 str3 = "My dog ate 3 slices of my pizza"
 str4 = "I can't believe my dog did that"
+
+print(str1)
 ```
 
 Notice that we have an apostrophe, a number, and even an exclamation mark in the above statements. Because we follow string formatting (flanking the outside of our string with single or double quotes), Python knows that we are inputting characters inside and that it should interpret it as such. 
@@ -185,6 +187,7 @@ int5 = 21543215
 Python language is very delicate. This is incredibly helpful in most cases, but it also means that you have strict guidelines to adhere to. For example, `21543215` and `21,543,215` are different data types. At the end of your "Integers" section, add the following:
 
 ```
+int5 = 21543215
 not_int = 21,543,215
 
 print(int5, type(int5))
@@ -206,6 +209,14 @@ float4 = 9.99999999999
 float5 = 1844384.85262
 float6 = 3/4
 float7 = 9/16
+
+# View types
+print(float1)
+print(type(float1))
+
+# View types
+print(float4)
+print(type(float4))
 ```
 
 ### Sequence Types
@@ -265,7 +276,6 @@ numbers = list(range(1,6))
 print(numbers)
 ```
 
-
 Let's take a look at our output more closely. Notice that our list starts with "1" and ends with "5." This is the same behavior we notice with indexing; our last digit has an off-by-one behavior. This means we have to add one to the last digit to get the range we want. For example, if we want the numbers 1-20 in a list, we have to use the following:
 
 ```
@@ -288,7 +298,7 @@ If we look more closely at the information in the range function, we see that we
 
 Mapping types are data types used to associate keys and values. Dictionaries are the only built-in mapping type, but others can be found in the `collections` module, such as `deafultdict`, `OrderedDict`, `Counter`, etc.
 
-Dictionaries are a type of collection in Python. It has keys and values, where a key is analogous to the index. To create a dictionary, we use curly brackets: `{}`. The keys have to be immutable and unique (since they act as an index), but the values can be immutable, mutable, and duplicates. Each key and value pair is separated by a comma. Let's make a dictionary!
+Dictionaries are a type of collection in Python. It has keys and values, where a key is analogous to the index. To create a dictionary, we use curly brackets: `{}`. The keys have to be immutable and unique (since they act as an index), but the values can be immutable, mutable, and duplicates. Each key and value pair is separated by a comma. One of the strengths of dictionaries is that they are known to be really efficient for data storage and manipulation. If you're working with a lot of data at once and need something to run quickly, a dictionary is a good way to go Let's make a dictionary!
 
 ```
 # Make our first dictionary
@@ -353,7 +363,7 @@ print(bool3)
 
 ## Comparison and Logic Operators
 
-Comparison and logic operators allow you to evaluate conditions and make decisions based on the results, facilitating control over your script and associated data handling. By allowing for the combination of multiple conditions, these operators allow for the creation of complex and dynamic logical expressions, which is essential when you create a script that can have multiple different types of inputs..
+Comparison and logic operators allow you to evaluate conditions and make decisions based on the results, facilitating control over your script and associated data handling. By allowing for the combination of multiple conditions, these operators allow for the creation of complex and dynamic logical expressions, which is essential when you create a script that can have multiple different types of inputs.
 
 ### Comparison Operators
 
@@ -413,7 +423,7 @@ print(not(True))
 print(not(False))
 ```
 
-The following example uses a conditional (if statement), which we will dive into in a future session. I will keep it basic here, but wanted to demonstrate the logic used.
+The following example uses a conditional (if statement), which we will dive into later. I will keep it basic here, but wanted to demonstrate the logic used.
 
 ```
 # Using logic operators in a basic conditional
@@ -446,7 +456,7 @@ Notice how the outputs are different. This is because the for loop carried out t
 ```
 # Carry out more complicated actions
 for magician in magicians:
-	print(magician.title() + " , that was a great trick!")
+	print(magician.title() + ", that was a great trick!")
 	print("I can’t wait to see your next trick, " + magician.title() + ".\n")
 ```
 
@@ -455,10 +465,10 @@ If we want to do something after a for-loop, write the code without an indentati
 ```
 # Carry out more complicated actions
 for magician in magicians:
-	print(magician.title() + " , that was a great trick!")
+	print(magician.title() + ", that was a great trick!")
 	print("I can’t wait to see your next trick, " + magician.title() + ".\n")
 	
-print("Thank you, everyone. That was a great magic show!"
+print("Thank you, everyone. That was a great magic show!")
 ```
 
 Here are some more examples of basic for-loops. Including how you can implement the `range()` function.
