@@ -1,6 +1,6 @@
 # Python Basics
 
-I have primarily adapted the content presented here from a [Python Focus Group](https://github.com/vhaghani26/python_focus_group) I conducted to teach students during grad school.
+I have primarily adapted the content presented here from a [Python Focus Group](https://github.com/vhaghani26/python_focus_group) I conducted to teach students during grad school. 
 
 ## Table of Contents
 
@@ -35,6 +35,8 @@ print("Viki")
 ```
 
 Note that `print(Viki)` does not work, as the absence of quotation marks interprets "Viki" as a variable (we will learn more about variables shortly). Try a few more commands on your own and see what you can do! Note that you can also use single quotations to print as long as the quotations marks flanking the statement are the same style (single vs. double).
+
+The `print()` function is essential for troubleshooting, as it allows you to check outputs and variables, data types, and even just allows you to print progress notes during script execution. In my opinion, the troubleshooting aspect is most helpful. As you write your scripts, you want to make sure the inputs and outputs are what you expect at every stage, so you can print them for verification.
 
 ## Comments in Python
 
@@ -141,13 +143,15 @@ print(an_animal_1)
 
 Rerun your code. Now your output should be "Bear." 
 
+Variables are fundamental in Python as they store data values that can be referenced and manipulated throughout your code. They enable you to create dynamic programs by allowing you to hold and update information, making your code more flexible and efficient. Whenever possible, assign information/data to a variable, ideally with an informative name, so people can easily read and understand your code. Using variables also allows you to easily reuse and edit code you have already written.
+
 ## Data Types
 
 Each data type has various strengths, associated functions for manipulation, and purposes in code. Since this is supposed to be a short introduction, I just want to provide you with the right names for different data types and how they're presented so you can dive further on your own. 
 
 ### Strings
 
-A string is a data type that is a sequence of characters. Even though it can contain numbers, the way a string is formatted tells Python to interpret those characters as characters rather than numbers.
+A string is a data type that is a sequence of characters. Even though it can contain numbers, the way a string is formatted tells Python to interpret those characters as characters rather than numbers. They enable people to handle inputs, format outputs, and work with textual data in a flexible manner. Often times, when you work with data frames, your data will be stored as a string. You can manipulate your data based on its contents and even manipulate the contents themselves. Strings are also used to represent file names and paths.
 
 ```
 # Examples of strings
@@ -163,7 +167,7 @@ Note that there is a `str()` function. We do not want to say anything like `str 
 
 ### Numeric Types
 
-Numeric types are data types containing numbers (including whole numbers, decimals, fractions, and complex numbers).
+Numeric types are data types containing numbers (including whole numbers, decimals, fractions, and complex numbers). They provide the foundation for performing mathematical operations, statistical analysis, and data manipulation. Whether working with integers for counting and indexing or using floats for precise calculations and measurements, numeric types allow you to handle a wide range of numerical data effectively. In data frame operations, such as those performed with libraries like Pandas or Polars, numeric types are used for aggregating, filtering, and analyzing datasets.
 
 #### Integers
 
@@ -207,6 +211,8 @@ float7 = 9/16
 ### Sequence Types
 
 Sequence types represent collections of data where each item is accessible by its index. Sequence types are fundamental for storing and manipulating data presented in a specific order. There are multiple types of sequence types, including tupples, lists, ranges, bytearrays, etc. Here, I will be focusing on lists and ranges because these are more commonly used sequence types.
+
+Sequence types are extremely helpful in Python, as they provide a structured way to store and manipulate collections of data. Lists, for instance, allow for dynamic data management, so you can easily add, remove, or modify elements while maintaining order. This flexibility is essential for tasks like data analysis, where the ability to handle varying data types and structures is necessary. Ranges, on the other hand, facilitate efficient iteration and generation of sequences, making them particularly useful in loops and mathematical computations.
 
 #### Lists
 
@@ -328,7 +334,7 @@ print(dict3)
 
 ### Booleans
 
-While Boolean values are usually not directly coded for, they are extremely helpful since any logical operator or statement ends up being a Boolean output. Booleans are most heavily associated with conditionals. A Boolean value can take two on two values: True or False. 
+While Boolean values are usually not directly coded for, they are extremely helpful since any logical operator or statement ends up being a Boolean output. Booleans are most heavily associated with conditionals (i.e. `if` statements). A Boolean value can take two on two values: True or False. 
 
 ```
 bool1 = type(True)
@@ -346,6 +352,8 @@ print(bool3)
 ```
 
 ## Comparison and Logic Operators
+
+Comparison and logic operators allow you to evaluate conditions and make decisions based on the results, facilitating control over your script and associated data handling. By allowing for the combination of multiple conditions, these operators allow for the creation of complex and dynamic logical expressions, which is essential when you create a script that can have multiple different types of inputs..
 
 ### Comparison Operators
 
